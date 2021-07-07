@@ -3,6 +3,7 @@ from flask import Flask, Response, render_template, send_from_directory
 from dotenv import load_dotenv
 
 load_dotenv()
+
 app = Flask(__name__)
 
 
