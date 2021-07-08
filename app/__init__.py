@@ -6,11 +6,16 @@ load_dotenv()
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    return render_template("index.html", title="MLH Fellow", url=os.getenv("URL"))
 
-@app.route('/health', methods=['GET'])
+
+@app.route("/health", methods=["GET"])
 def health():
-    resp.status_code = 200
-    return resp.status_code
+    return Response("HTTP 200 OK", mimetype="text/html"), 200
+
+
+@app.route("/blog")
+def blog():
+    return render_template("blog.html", title="Blog")
